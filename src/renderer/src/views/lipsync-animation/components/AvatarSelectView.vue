@@ -19,7 +19,7 @@
         <div class="model-list">
           <div 
             class="model-list__item" 
-            v-for="model in state.filteredModels" 
+            v-for="model in filteredModels" 
             :key="model.id"
             @click="action.selectModel(model)" 
             :class="{ '--active': data.model?.id === model.id }"
@@ -33,7 +33,7 @@
         </div>
         
         <!-- Empty state -->
-        <div class="empty-state" v-if="state.filteredModels.length === 0">
+        <div class="empty-state" v-if="filteredModels.length === 0">
           <div class="empty-icon">👤</div>
           <div class="empty-text">{{ $t('common.lipSync.avatarSelect.noAvatarsFound') }}</div>
           <t-button theme="primary" size="small" @click="action.createAvatar">
@@ -102,11 +102,6 @@ const action = {
     }
   }
 }
-
-// Use computed for filtered models instead of state
-Object.defineProperty(state, 'filteredModels', {
-  get: filteredModels
-})
 
 onMounted(() => {
   action.loadModels()

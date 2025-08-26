@@ -35,7 +35,7 @@ import AvatarSelect from './components/AvatarSelectView.vue'
 import Preview from './components/PreviewView.vue'
 import AudioUpload from './components/AudioUploadView.vue'
 import ModalFinished from '@renderer/components/ModalFinished.vue'
-import { modelPage } from '@renderer/api'
+import { modelPage, saveVideo, makeVideo } from '@renderer/api'
 import { useRoute, useRouter } from 'vue-router'
 import { MessagePlugin } from 'tdesign-vue-next'
 import { useI18n } from 'vue-i18n'
@@ -86,11 +86,27 @@ const action = {
     try {
       state.initLoading = true
       
-      // Here we would integrate with the existing video synthesis service
-      // to create a lip-synced animation with the selected avatar and audio
+      // Create a video record for the lip-sync animation
+      const videoData = {
+        name: `Lip-sync Animation - ${state.select.model.name}`,
+        model_id: state.select.model.id,
+        text_content: '', // Empty for audio-based animation
+        voice_id: null, // Not using TTS, using uploaded audio
+        audio_path: state.select.uploaded.audioUrl
+      }
       
-      MessagePlugin.success(t('common.lipSync.success.animationCreated'))
-      modalFinished.value?.show()
+      // Save the video record
+      const savedVideo = await saveVideo(videoData)
+      
+      if (savedVideo && savedVideo.id) {
+        // Start the video synthesis process
+        await makeVideo(savedVideo.id)
+        
+        MessagePlugin.success(t('common.lipSync.success.animationCreated'))
+        modalFinished.value?.show()
+      } else {
+        throw new Error('Failed to save video record')
+      }
       
     } catch (error) {
       console.error('Failed to create lip-sync animation:', error)
