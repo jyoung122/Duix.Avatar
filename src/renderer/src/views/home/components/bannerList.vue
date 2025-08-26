@@ -11,6 +11,16 @@
         <div class="text" :style="locale === 'en' ?  'font-size: 13px;' : ''">{{$t('common.banner0.buttonText') }}</div>
       </div>
     </div>
+    <div class="banner-middle" @click="action.handleLipSync">
+      <div class="title-box">
+        <div class="h1">{{$t('common.banner2.title') }}</div>
+        <div class="text">{{$t('common.banner2.subTitle') }}</div>
+        <div class="link">
+          <div class="link-text" :style="locale === 'en' ?  'font-size: 12px;' : ''">{{$t('common.banner2.buttonText') }}</div>
+          <img src="../../../assets/images/home/go.svg" />
+        </div>
+      </div>
+    </div>
     <div class="banner-right" @click="action.handleCreateModel">
       <div class="title-box" :style="locale === 'zh' ? '' : 'padding: 12px 0px 0px 32px;'">
         <div class="h1">{{$t('common.banner1.buttonText') }}</div>
@@ -34,6 +44,9 @@ const action = {
   async handleCreateVideo() {
     router.push("/video/edit");
   },
+  async handleLipSync() {
+    router.push("/lipsync");
+  },
   async handleCreateModel() {
     const { isSubmitOK } = await createModel();
     // 提交成功
@@ -48,9 +61,10 @@ const action = {
   display: flex;
   width: 100%;
   margin-bottom: 18px;
+  gap: 12px;
 
   .banner-left {
-    width: 65%;
+    width: 50%;
     border-radius: 8px;
     display: flex;
     height: 160px;
@@ -115,10 +129,73 @@ const action = {
     }
   }
 
-  .banner-right {
-    width: calc(35% - 20px);
+  .banner-middle {
+    width: 25%;
     border-radius: 8px;
-    margin-left: auto;
+    background-repeat: no-repeat;
+    height: 160px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+
+    .title-box {
+      padding: 24px 16px 0px 16px;
+
+      .h1 {
+        font-family: Alimama FangYuanTi VF-Bold, Alimama FangYuanTi VF-Bold;
+        font-weight: normal;
+        font-size: 24px;
+        color: #ffffff;
+        line-height: 36px;
+        letter-spacing: 2px;
+        font-style: normal;
+      }
+
+      .text {
+        font-family: HarmonyOS Sans SC, HarmonyOS Sans SC;
+        font-weight: 400;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 18px;
+        letter-spacing: 1px;
+        font-style: normal;
+        margin-top: 4px;
+      }
+
+      .link {
+        width: 90px;
+        height: 28px;
+        background: #ffffff;
+        cursor: pointer;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-top: 8px;
+
+        .link-text {
+          font-family: HarmonyOS Sans SC, HarmonyOS Sans SC;
+          font-weight: bold;
+          font-size: 12px;
+          color: #667eea;
+          line-height: 18px;
+          text-align: center;
+          font-style: normal;
+          margin-right: 4px;
+        }
+
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  .banner-right {
+    width: 25%;
+    border-radius: 8px;
     background-repeat: no-repeat;
     height: 160px;
     /* 固定高度 */

@@ -36,6 +36,11 @@ export const commonZh = {
     subTitle: '只需一个视频快速定制',
     buttonText: '快速定制'
   },
+  banner2: {
+    title: '唇音同步',
+    subTitle: '音频驱动模特说话',
+    buttonText: '立即体验'
+  },
   videoList: {
     previewTitle: '预览视频',
     downloadTitle: '下载视频',
@@ -142,6 +147,56 @@ export const commonZh = {
       languageEnText: '英文',
       languageZhText: '中文'
     }
+  },
+  lipSync: {
+    headerView: {
+      title: '唇音同步动画',
+      headerBackText: '返回',
+      saveDraftText: '保存草稿',
+      createAnimationText: '生成动画'
+    },
+    avatarSelect: {
+      title: '选择数字模特',
+      searchPlaceholder: '搜索模特',
+      noAvatarsFound: '未找到模特',
+      createAvatar: '创建模特'
+    },
+    preview: {
+      title: '预览',
+      selectAvatarPrompt: '请选择一个数字模特开始预览',
+      play: '播放',
+      pause: '暂停'
+    },
+    audioUpload: {
+      title: '音频上传',
+      dropOrClick: '拖拽音频文件到此处或点击选择',
+      supportedFormats: '支持 MP3、WAV、FLAC、M4A 格式',
+      selectFile: '选择文件',
+      listen: '试听',
+      pause: '暂停',
+      uploadError: '音频上传失败',
+      durationError: '音频时长不能超过30分钟',
+      unsupportedFormat: '不支持的音频格式',
+      playbackError: '音频播放失败',
+      lipSyncSettings: '唇音同步设置',
+      sensitivity: '敏感度',
+      smoothing: '平滑度'
+    },
+    errors: {
+      noAvatarSelected: '请选择一个数字模特',
+      noAudioUploaded: '请上传音频文件',
+      animationFailed: '动画生成失败'
+    },
+    success: {
+      animationCreated: '动画已提交生成',
+      draftSaved: '草稿已保存'
+    },
+    modalFinishedObj: {
+      text1: '请前往',
+      text2: '\"首页 - 我的作品\" ',
+      text3: '查看结果～',
+      rightBtnText: '再次创建'
+    }
   }
 }
 
@@ -176,6 +231,11 @@ export const commonEn = {
     title: 'Create Avatar',
     subTitle: 'Upload a video to generate your own digital avatar.',
     buttonText: 'Create Avatar'
+  },
+  banner2: {
+    title: 'Lip-Sync',
+    subTitle: 'Animate avatar with audio',
+    buttonText: 'Try Now'
   },
   videoList: {
     previewTitle: 'Preview',
@@ -282,6 +342,56 @@ export const commonEn = {
     languageSwitch: {
       languageEnText: 'English',
       languageZhText: 'Chinese'
+    }
+  },
+  lipSync: {
+    headerView: {
+      title: 'Lip-Sync Animation',
+      headerBackText: 'Back',
+      saveDraftText: 'Save Draft',
+      createAnimationText: 'Create Animation'
+    },
+    avatarSelect: {
+      title: 'Select Avatar',
+      searchPlaceholder: 'Search avatars',
+      noAvatarsFound: 'No avatars found',
+      createAvatar: 'Create Avatar'
+    },
+    preview: {
+      title: 'Preview',
+      selectAvatarPrompt: 'Please select an avatar to start previewing',
+      play: 'Play',
+      pause: 'Pause'
+    },
+    audioUpload: {
+      title: 'Audio Upload',
+      dropOrClick: 'Drag audio file here or click to select',
+      supportedFormats: 'Supports MP3, WAV, FLAC, M4A formats',
+      selectFile: 'Select File',
+      listen: 'Listen',
+      pause: 'Pause',
+      uploadError: 'Audio upload failed',
+      durationError: 'Audio duration cannot exceed 30 minutes',
+      unsupportedFormat: 'Unsupported audio format',
+      playbackError: 'Audio playback failed',
+      lipSyncSettings: 'Lip-Sync Settings',
+      sensitivity: 'Sensitivity',
+      smoothing: 'Smoothing'
+    },
+    errors: {
+      noAvatarSelected: 'Please select an avatar',
+      noAudioUploaded: 'Please upload an audio file',
+      animationFailed: 'Animation generation failed'
+    },
+    success: {
+      animationCreated: 'Animation has been submitted for generation',
+      draftSaved: 'Draft saved'
+    },
+    modalFinishedObj: {
+      text1: 'Please go to',
+      text2: '"Home - My Works" ',
+      text3: 'to check the results~',
+      rightBtnText: 'Create Again'
     }
   }
 }
